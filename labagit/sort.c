@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//bubblesort
 void FillInc(int A[], int n) {
     for (int i = 0; i < n; i++)
         A[i] = i + 1;
