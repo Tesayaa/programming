@@ -1,0 +1,17 @@
+TARGET = hello
+
+CC = gcc
+
+CFLAGS = -Wall -g -I. -pthread -std=c99
+
+OBJECTS = main.o background.o read_pipe.o write_pipe.o
+
+$(TARGET): $(OBJECTS)
+    $(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+main.o: main.c    $(CC) $(CFLAGS) -c main.c -o main.o
+background.o: background.c
+    $(CC) $(CFLAGS) -c background.c -o background.o
+read_pipe.o: read_pipe.c    $(CC) $(CFLAGS) -c read_pipe.c -o read_pipe.o
+write_pipe.o: write_pipe.c
+    $(CC) $(CFLAGS) -c write_pipe.c -o write_pipe.o
+clean:    rm -f $(TARGET) $(OBJECTS)
